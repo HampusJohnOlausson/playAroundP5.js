@@ -4,18 +4,19 @@ function setup(){
 
     const x = (windowWidth - width) / 2;
     const y = (windowHeight - height) / 2;
-    
+
     canvas.position(x, y);
 }
 
 function draw(){
 
     background(0,191,255);
-    appleOne = new Apple(100, 100, 20, 20);
+    fill('green');
+    appleOne = new Apple(random(0, 700), 20, 20);
+    appleOne.shape();
     
-    // rect(100, 100, 20,20);
-    //  fill(0,255,127);
-    
+    fill(0,255,127);
+    rect(0, 355, 560, 30);
 }
 
 class Apple {
@@ -27,5 +28,9 @@ class Apple {
     shape(){
         fill(220,20,60)
         ellipse(this.x, this.y, this.y * 2);
+    }
+    move(){
+        this.y = this.y + 6;
+        drop2.y = drop2.y + 2;
     }
 }
