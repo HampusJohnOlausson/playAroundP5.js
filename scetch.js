@@ -1,36 +1,49 @@
+let x = 0; 
+let y = 0;
+let speed = 3; 
+
+let on = false;
+
 function setup(){
 
-    const canvas = createCanvas(innerWidth, innerHeight);
-
-    const x = (windowWidth - width) / 2;
-    const y = (windowHeight - height) / 2;
-
-    canvas.position(x, y);
+    createCanvas(600, 400);
 }
 
 function draw(){
 
     background(0,191,255);
-    fill('green');
-    appleOne = new Apple(random(0, 700), 20, 20);
-    appleOne.shape();
     
-    fill(0,255,127);
-    rect(0, 355, 560, 30);
+   
+    fill('green');
+    ellipse(x, y, 100, 100);
+    
+    // appleOne = new Apple(x, 40, 30, 30);
+    // appleOne.shape();
+   
+
+    if( x > width){
+        speed = -3;
+    }
+    x = x + speed;
+    y = y + speed;
+
+    rect(mouseX, 300, 100, 100)
+    noCursor();
+    
 }
 
-class Apple {
-    constructor(x, y, d){
-        this.x = x,
-        this.y = y,
-        this.d = d
-    }
-    shape(){
-        fill(220,20,60)
-        ellipse(this.x, this.y, this.y * 2);
-    }
-    move(){
-        this.y = this.y + 6;
-        drop2.y = drop2.y + 2;
-    }
-}
+// class Apple {
+//     constructor(x, y, d){
+//         this.x = x,
+//         this.y = y,
+//         this.d = d
+//     }
+//     shape(){
+//         fill(220,20,60)
+//         ellipse(this.x, this.y, this.y * 2);
+//     }
+//     move(){
+//         this.y = this.y + 6;
+//         drop2.y = drop2.y + 2;
+//     }
+// }
